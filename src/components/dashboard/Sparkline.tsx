@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  YAxis,
-} from "recharts";
+import { Line, LineChart, ResponsiveContainer, Tooltip, YAxis } from "recharts";
 import { CoinMarket } from "@/lib/types";
 
 type Props = {
@@ -32,7 +26,11 @@ export function Sparkline({ coin }: Props) {
           <Line
             type="monotone"
             dataKey="price"
-            stroke={(data.at(-1)?.price ?? 0) >= (data.at(0)?.price ?? 0) ? "#34d399" : "#f472b6"}
+            stroke={
+              (data.at(-1)?.price ?? 0) >= (data.at(0)?.price ?? 0)
+                ? "#34d399"
+                : "#f472b6"
+            }
             dot={false}
             strokeWidth={2}
           />
@@ -41,4 +39,3 @@ export function Sparkline({ coin }: Props) {
     </div>
   );
 }
-

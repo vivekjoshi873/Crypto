@@ -4,7 +4,7 @@ import { API_BASE, API_KEY } from "@/lib/constants";
 export async function GET(request: NextRequest) {
   const searchParams = request.nextUrl.searchParams;
   const url = new URL(`${API_BASE}/global`);
-  
+
   // Copy all query parameters
   searchParams.forEach((value, key) => {
     url.searchParams.set(key, value);
@@ -41,4 +41,3 @@ export async function GET(request: NextRequest) {
     );
   }
 }
-

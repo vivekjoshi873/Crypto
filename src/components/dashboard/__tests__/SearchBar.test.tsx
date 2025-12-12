@@ -11,4 +11,3 @@ describe("SearchBar", () => {
     expect(handle).toHaveBeenCalledWith("btc");
   });
 });
-

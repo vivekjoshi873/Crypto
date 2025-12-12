@@ -8,7 +8,7 @@ export async function GET(
   const { id } = await params;
   const searchParams = request.nextUrl.searchParams;
   const url = new URL(`${API_BASE}/coins/${id}`);
-  
+
   // Copy all query parameters
   searchParams.forEach((value, key) => {
     url.searchParams.set(key, value);
@@ -45,4 +45,3 @@ export async function GET(
     );
   }
 }
-

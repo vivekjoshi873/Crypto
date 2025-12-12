@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useCallback, useState } from "react";
 import { readStorage, writeStorage } from "@/lib/storage";
@@ -7,7 +7,7 @@ const STORAGE_KEY = "crypto-watchlist";
 
 export function useWatchlist() {
   const [items, setItems] = useState<string[]>(() =>
-    readStorage<string[]>(STORAGE_KEY, []),
+    readStorage<string[]>(STORAGE_KEY, [])
   );
 
   const toggle = useCallback((id: string) => {
@@ -20,11 +20,7 @@ export function useWatchlist() {
     });
   }, []);
 
-  const isWatched = useCallback(
-    (id: string) => items.includes(id),
-    [items],
-  );
+  const isWatched = useCallback((id: string) => items.includes(id), [items]);
 
   return { items, toggle, isWatched };
 }
-

@@ -14,4 +14,3 @@ export const HISTORY_RANGES = [
   { label: "90D", value: "90" },
   { label: "1Y", value: "365" },
 ];
-

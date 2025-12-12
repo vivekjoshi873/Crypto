@@ -18,7 +18,7 @@ export function SearchBar({ value, onChange, className }: Props) {
     <div
       className={cn(
         "flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-slate-100 focus-within:ring-2 focus-within:ring-sky-500",
-        className,
+        className
       )}
     >
       <Search className="h-4 w-4 text-slate-400" />
@@ -32,4 +32,3 @@ export function SearchBar({ value, onChange, className }: Props) {
     </div>
   );
 }
-

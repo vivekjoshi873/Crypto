@@ -10,9 +10,9 @@ import {
   Zap,
   Activity,
 } from "lucide-react";
-import { NumberTicker } from "../components/ui/number-ticker"
+import { NumberTicker } from "../components/ui/number-ticker";
 import { Boxes } from "../components/ui/background-boxes";
-import { HyperText } from "../../src/components/ui/hyper-text"
+import { HyperText } from "../../src/components/ui/hyper-text";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -52,7 +52,7 @@ export default function LandingPage() {
             </Button>
           </Link>
           <Link href="#features">
-            <Button className="rounded-xl cursor-pointer border border-white/10 bg-white/5 px-8 py-6 text-lg font-semibold text-gray-900 backdrop-blur transition-all hover:bg-white/10 dark:text-white " >
+            <Button className="rounded-xl cursor-pointer border border-white/10 bg-white/5 px-8 py-6 text-lg font-semibold text-gray-900 backdrop-blur transition-all hover:bg-white/10 dark:text-white ">
               Learn More
             </Button>
           </Link>
@@ -99,7 +99,6 @@ export default function LandingPage() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          
           <Card className="space-y-4 p-6 transition-all hover:scale-105">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-sky-500/10">
               <LineChart className="h-6 w-6 text-sky-400" />

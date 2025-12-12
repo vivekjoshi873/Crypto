@@ -8,11 +8,7 @@ type BadgeProps = {
   className?: string;
 };
 
-export function Badge({
-  children,
-  variant = "muted",
-  className,
-}: BadgeProps) {
+export function Badge({ children, variant = "muted", className }: BadgeProps) {
   return (
     <span
       className={cn(
@@ -23,11 +19,10 @@ export function Badge({
           warning: "bg-amber-500/15 text-amber-200",
           muted: "bg-white/10 text-slate-200",
         }[variant],
-        className,
+        className
       )}
     >
       {children}
     </span>
   );
 }
-

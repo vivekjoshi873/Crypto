@@ -77,7 +77,7 @@ export async function fetchGlobalStats(): Promise<GlobalStats> {
 
 export async function fetchCoinHistory(
   id: string,
-  days: string,
+  days: string
 ): Promise<HistoryPoint[]> {
   const params = new URLSearchParams({
     vs_currency: "usd",
@@ -88,7 +88,7 @@ export async function fetchCoinHistory(
     `${API_BASE}/coins/${id}/market_chart?${params.toString()}`,
     {
       cache: "no-store",
-    },
+    }
   );
   if (!res.ok) {
     throw new Error("Failed to load history");
@@ -106,12 +106,9 @@ export async function fetchCoinDetails(id: string): Promise<CoinMarket> {
     developer_data: "false",
     sparkline: "true",
   });
-  const res = await fetch(
-    `${API_BASE}/coins/${id}?${params.toString()}`,
-    {
-      cache: "no-store",
-    },
-  );
+  const res = await fetch(`${API_BASE}/coins/${id}?${params.toString()}`, {
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to load coin");
   }
@@ -150,7 +147,7 @@ export async function fetchTickers(id: string): Promise<Ticker[]> {
     `${API_BASE}/coins/${id}/tickers?${params.toString()}`,
     {
       cache: "no-store",
-    },
+    }
   );
   if (!res.ok) {
     throw new Error("Failed to load tickers");
@@ -167,13 +164,14 @@ export async function fetchTickers(id: string): Promise<Ticker[]> {
     timestamp?: string;
   };
 
-  return (json?.tickers as RawTicker[] | undefined)?.slice(0, 12).map((t) => ({
-    market: t.market?.name ?? "—",
-    last: t.last,
-    converted_last: t.converted_last?.usd,
-    volume: t.converted_volume?.usd ?? t.volume ?? 0,
-    trade_url: t.trade_url,
-    timestamp: t.timestamp,
-  })) ?? [];
+  return (
+    (json?.tickers as RawTicker[] | undefined)?.slice(0, 12).map((t) => ({
+      market: t.market?.name ?? "—",
+      last: t.last,
+      converted_last: t.converted_last?.usd,
+      volume: t.converted_volume?.usd ?? t.volume ?? 0,
+      trade_url: t.trade_url,
+      timestamp: t.timestamp,
+    })) ?? []
+  );
 }
-

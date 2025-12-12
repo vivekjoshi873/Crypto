@@ -20,9 +20,10 @@ export function WatchlistButton({ coinId }: Props) {
       onClick={() => toggle(coinId)}
       aria-pressed={active}
     >
-      <Star className={cn("h-4 w-4", active && "fill-amber-300 text-amber-300")} />
+      <Star
+        className={cn("h-4 w-4", active && "fill-amber-300 text-amber-300")}
+      />
       {active ? "On Watchlist" : "Add to Watchlist"}
     </Button>
   );
 }
-

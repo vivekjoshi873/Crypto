@@ -24,14 +24,19 @@ export default function CoinDetails({
 }) {
   const { id } = use(params);
   const [range, setRange] = useState<string>(HISTORY_RANGES[1].value);
-  const { data: coins, isLoading, error, refetch } = usePrices({
+  const {
+    data: coins,
+    isLoading,
+    error,
+    refetch,
+  } = usePrices({
     ids: [id],
     perPage: 1,
   });
   const coin = coins?.[0];
   const { data: history, isLoading: historyLoading } = useCoinHistory(
     id,
-    range,
+    range
   );
   const { data: tickers, isLoading: tickersLoading } = useTickers(id);
 
@@ -110,7 +115,9 @@ export default function CoinDetails({
         </Card>
 
         <Card>
-          <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">Latest Markets</h3>
+          <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
+            Latest Markets
+          </h3>
           <PriceFeed data={tickers} isLoading={tickersLoading} />
           <div className="mt-3 text-xs text-slate-500">
             Live tickers update every ~30s. Data courtesy of CoinGecko.
@@ -119,7 +126,9 @@ export default function CoinDetails({
       </section>
 
       <section className="mt-6">
-        <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">Market Stats</h3>
+        <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
+          Market Stats
+        </h3>
         <StatGrid coin={coin} />
       </section>
 
@@ -130,4 +139,3 @@ export default function CoinDetails({
     </main>
   );
 }
-

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useQuery } from "@tanstack/react-query";
 import { fetchTickers } from "@/lib/api";
@@ -13,4 +13,3 @@ export function useTickers(id: string) {
     refetchInterval: 30_000,
   });
 }
-

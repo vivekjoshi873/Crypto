@@ -37,4 +37,3 @@ export function Pagination({ page, onPageChange, disabled }: Props) {
     </div>
   );
 }
-

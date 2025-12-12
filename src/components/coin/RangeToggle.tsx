@@ -24,4 +24,3 @@ export function RangeToggle({ value, onChange }: Props) {
     </div>
   );
 }
-

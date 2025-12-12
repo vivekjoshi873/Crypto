@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinHistory } from "@/lib/api";
@@ -12,4 +12,3 @@ export function useCoinHistory(id: string, days: string) {
     staleTime: 60_000,
   });
 }
-

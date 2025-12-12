@@ -40,4 +40,3 @@ export type SortKey =
   | "price_change_percentage_24h"
   | "price_change_percentage_7d_in_currency"
   | "total_volume";
-

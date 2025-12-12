@@ -12,14 +12,8 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    {
-      className,
-      asChild = false,
-      variant = "primary",
-      size = "md",
-      ...props
-    },
-    ref,
+    { className, asChild = false, variant = "primary", size = "md", ...props },
+    ref
   ) => {
     const Comp = asChild ? Slot : "button";
     return (
@@ -32,8 +26,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
               "bg-gradient-to-r from-sky-500 to-indigo-500 text-white hover:from-sky-400 hover:to-indigo-400",
             ghost:
               "bg-transparent text-slate-200 hover:bg-white/5 border border-transparent",
-            outline:
-              "border border-white/10 text-slate-100 hover:bg-white/5",
+            outline: "border border-white/10 text-slate-100 hover:bg-white/5",
           }[variant],
           {
             sm: "px-3 py-1.5 text-sm",
@@ -41,13 +34,12 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             lg: "px-5 py-3 text-base",
             icon: "p-2",
           }[size],
-          className,
+          className
         )}
         {...props}
       />
     );
-  },
+  }
 );
 
 Button.displayName = "Button";
-

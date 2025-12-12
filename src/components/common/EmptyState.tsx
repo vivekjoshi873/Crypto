@@ -13,4 +13,3 @@ export function EmptyState({ title, description }: Props) {
     </div>
   );
 }
-

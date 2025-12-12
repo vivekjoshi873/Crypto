@@ -29,7 +29,7 @@ export function usePreferences() {
       refreshMs: DEFAULT_REFETCH_MS,
       direction: "desc",
     });
-    setPrefs(stored);
+    setPrefs(stored as Preferences);
   }, []);
 
   useEffect(() => {

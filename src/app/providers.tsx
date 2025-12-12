@@ -15,7 +15,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
             refetchOnReconnect: true,
           },
         },
-      }),
+      })
   );
 
   return (
@@ -27,4 +27,3 @@ export function Providers({ children }: { children: React.ReactNode }) {
     </ThemeProvider>
   );
 }
-

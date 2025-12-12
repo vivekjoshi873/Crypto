@@ -39,11 +39,10 @@ describe("usePrices", () => {
 
     const { result } = renderHook(
       () => usePrices({ perPage: 1, refetchInterval: 0 }),
-      { wrapper: createWrapper() },
+      { wrapper: createWrapper() }
     );
 
     await waitFor(() => expect(result.current.isSuccess).toBe(true));
     expect(result.current.data?.[0].id).toBe("bitcoin");
   });
 });
-

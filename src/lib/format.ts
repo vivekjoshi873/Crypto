@@ -1,4 +1,7 @@
-export const formatCurrency = (value: number, opts?: Intl.NumberFormatOptions) =>
+export const formatCurrency = (
+  value: number,
+  opts?: Intl.NumberFormatOptions
+) =>
   new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -26,4 +29,3 @@ export const formatDate = (timestamp: number | string) => {
     minute: "2-digit",
   });
 };
-

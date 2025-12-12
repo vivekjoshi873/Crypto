@@ -26,13 +26,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-mono antialiased`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} font-mono antialiased`}
+      >
         <Providers>
           <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/5">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
               <div className="flex h-16 items-center">
-                <Link 
-                  href="/" 
+                <Link
+                  href="/"
                   className="text-2xl font-bold bg-linear-to-r from-sky-400 to-emerald-400 bg-clip-text text-transparent hover:from-sky-300 hover:to-emerald-300 transition-all duration-300 uppercase"
                 >
                   cryptu
@@ -40,9 +42,7 @@ export default function RootLayout({
               </div>
             </div>
           </header>
-          <div className="pt-16">
-            {children}
-          </div>
+          <div className="pt-16">{children}</div>
         </Providers>
       </body>
     </html>

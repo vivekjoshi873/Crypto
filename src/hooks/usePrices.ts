@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useMemo } from "react";
 import { useQuery } from "@tanstack/react-query";
@@ -21,13 +21,11 @@ const sorters: Record<SortKey, (a: CoinMarket, b: CoinMarket) => number> = {
   market_cap: (a, b) => (a.market_cap ?? 0) - (b.market_cap ?? 0),
   current_price: (a, b) => (a.current_price ?? 0) - (b.current_price ?? 0),
   price_change_percentage_24h: (a, b) =>
-    (a.price_change_percentage_24h ?? 0) -
-    (b.price_change_percentage_24h ?? 0),
+    (a.price_change_percentage_24h ?? 0) - (b.price_change_percentage_24h ?? 0),
   price_change_percentage_7d_in_currency: (a, b) =>
     (a.price_change_percentage_7d_in_currency ?? 0) -
     (b.price_change_percentage_7d_in_currency ?? 0),
-  total_volume: (a, b) =>
-    (a.total_volume ?? 0) - (b.total_volume ?? 0),
+  total_volume: (a, b) => (a.total_volume ?? 0) - (b.total_volume ?? 0),
 };
 
 export function usePrices({
@@ -42,7 +40,7 @@ export function usePrices({
 }: UsePricesOptions = {}) {
   const queryKey = useMemo(
     () => ["prices", { page, perPage, sortKey, direction, search, ids }],
-    [page, perPage, sortKey, direction, search, ids],
+    [page, perPage, sortKey, direction, search, ids]
   );
 
   return useQuery({
@@ -80,4 +78,3 @@ export function usePrices({
     retryDelay: (attempt) => Math.min(2000 * 2 ** attempt, 15_000),
   });
 }
-

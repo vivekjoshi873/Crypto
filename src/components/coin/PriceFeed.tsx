@@ -61,4 +61,3 @@ export function PriceFeed({ data = [], isLoading }: Props) {
     </div>
   );
 }
-

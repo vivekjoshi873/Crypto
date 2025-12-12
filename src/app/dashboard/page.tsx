@@ -42,7 +42,7 @@ export default function Dashboard() {
     return data.filter(
       (coin) =>
         coin.name.toLowerCase().includes(debouncedSearch.toLowerCase()) ||
-        coin.symbol.toLowerCase().includes(debouncedSearch.toLowerCase()),
+        coin.symbol.toLowerCase().includes(debouncedSearch.toLowerCase())
     );
   }, [data, debouncedSearch]);
 
@@ -50,7 +50,8 @@ export default function Dashboard() {
     setPrefs((prev) => ({
       ...prev,
       sortKey: key,
-      direction: prev.sortKey === key && prev.direction === "desc" ? "asc" : "desc",
+      direction:
+        prev.sortKey === key && prev.direction === "desc" ? "asc" : "desc",
     }));
   };
 
@@ -58,7 +59,9 @@ export default function Dashboard() {
     <main className="mx-auto min-h-screen max-w-6xl px-4 py-10 sm:px-6 lg:px-10">
       <header className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
         <div>
-          <p className="text-sm uppercase tracking-[0.2em] text-sky-300">Live Crypto</p>
+          <p className="text-sm uppercase tracking-[0.2em] text-sky-300">
+            Live Crypto
+          </p>
           <h1 className="text-3xl font-semibold text-gray-900 dark:text-white md:text-4xl">
             Crypto Dashboard
           </h1>
@@ -81,7 +84,11 @@ export default function Dashboard() {
 
       <section className="mt-6 space-y-4">
         <div className="flex flex-col gap-3 rounded-2xl border border-white/5 bg-white/5 p-4 md:flex-row md:items-center md:justify-between">
-          <SearchBar value={search} onChange={setSearch} className="md:max-w-md" />
+          <SearchBar
+            value={search}
+            onChange={setSearch}
+            className="md:max-w-md"
+          />
           <div className="flex flex-wrap items-center gap-3 text-sm text-slate-300">
             <button
               className="flex items-center gap-2 rounded-lg border border-white/10 px-3 py-2 transition hover:border-sky-500"
@@ -112,7 +119,11 @@ export default function Dashboard() {
         )}
 
         <div className="flex items-center justify-between">
-          <Pagination page={page} onPageChange={setPage} disabled={isFetching} />
+          <Pagination
+            page={page}
+            onPageChange={setPage}
+            disabled={isFetching}
+          />
           <p className="text-xs text-slate-400">
             Showing {filtered.length} of {DEFAULT_PER_PAGE} coins
           </p>
@@ -121,4 +132,3 @@ export default function Dashboard() {
     </main>
   );
 }
-

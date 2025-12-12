@@ -33,7 +33,13 @@ export function SummaryCards({ stats, isLoading }: Props) {
           </div>
           <Wallet className="h-6 w-6 text-sky-300" />
         </div>
-        <Badge variant={(stats?.market_cap_change_percentage_24h ?? 0) >= 0 ? "success" : "danger"}>
+        <Badge
+          variant={
+            (stats?.market_cap_change_percentage_24h ?? 0) >= 0
+              ? "success"
+              : "danger"
+          }
+        >
           {isLoading
             ? "—"
             : `${stats?.market_cap_change_percentage_24h?.toFixed(2)}% 24h`}
@@ -85,4 +91,3 @@ export function SummaryCards({ stats, isLoading }: Props) {
     </div>
   );
 }
-

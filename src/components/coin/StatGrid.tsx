@@ -54,7 +54,9 @@ export function StatGrid({ coin }: Props) {
                 {value}
               </Badge>
             ) : (
-              <p className="text-lg font-semibold text-gray-900 dark:text-white">{value}</p>
+              <p className="text-lg font-semibold text-gray-900 dark:text-white">
+                {value}
+              </p>
             )}
           </Card>
         );
@@ -62,4 +64,3 @@ export function StatGrid({ coin }: Props) {
     </div>
   );
 }
-

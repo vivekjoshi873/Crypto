@@ -29,7 +29,7 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
       { key: "market_cap", label: "Market Cap" },
       { key: "total_volume", label: "Volume" },
     ],
-    [],
+    []
   );
 
   return (
@@ -52,7 +52,7 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
                     <ArrowUpDown
                       className={cn(
                         "h-3 w-3",
-                        sortKey === h.key ? "text-white" : "text-slate-500",
+                        sortKey === h.key ? "text-white" : "text-slate-500"
                       )}
                     />
                   </div>
@@ -76,13 +76,21 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
                       onClick={() => toggle(coin.id)}
                     >
                       <Star
-                        className={cn("h-4 w-4", isWatched(coin.id) && "fill-amber-300")}
+                        className={cn(
+                          "h-4 w-4",
+                          isWatched(coin.id) && "fill-amber-300"
+                        )}
                       />
                     </button>
                   </td>
-                  <td className="px-4 py-3 text-slate-300">{coin.market_cap_rank}</td>
+                  <td className="px-4 py-3 text-slate-300">
+                    {coin.market_cap_rank}
+                  </td>
                   <td className="px-4 py-3">
-                    <Link href={`/coins/${coin.id}`} className="flex items-center gap-2">
+                    <Link
+                      href={`/coins/${coin.id}`}
+                      className="flex items-center gap-2"
+                    >
                       <Image
                         src={coin.image}
                         alt={coin.name}
@@ -92,11 +100,17 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
                       />
                       <div>
                         <p className="font-semibold text-white">{coin.name}</p>
-                        <p className="text-xs uppercase text-slate-400">{coin.symbol}</p>
+                        <p className="text-xs uppercase text-slate-400">
+                          {coin.symbol}
+                        </p>
                       </div>
                     </Link>
                   </td>
-                  <td className="px-4 py-3">{formatCurrency(coin.current_price, { notation: "standard" })}</td>
+                  <td className="px-4 py-3">
+                    {formatCurrency(coin.current_price, {
+                      notation: "standard",
+                    })}
+                  </td>
                   <td className="px-4 py-3">
                     <Badge variant={positive ? "success" : "danger"}>
                       {formatPercent(coin.price_change_percentage_24h)}
@@ -110,7 +124,9 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
                           : "danger"
                       }
                     >
-                      {formatPercent(coin.price_change_percentage_7d_in_currency ?? 0)}
+                      {formatPercent(
+                        coin.price_change_percentage_7d_in_currency ?? 0
+                      )}
                     </Badge>
                   </td>
                   <td className="px-4 py-3 text-slate-200">
@@ -127,7 +143,10 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
             })}
             {isLoading && (
               <tr>
-                <td colSpan={9} className="px-4 py-6 text-center text-sm text-slate-400">
+                <td
+                  colSpan={9}
+                  className="px-4 py-6 text-center text-sm text-slate-400"
+                >
                   Loading market data...
                 </td>
               </tr>
@@ -155,7 +174,9 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
                 />
                 <div>
                   <p className="font-semibold text-white">{coin.name}</p>
-                  <p className="text-xs uppercase text-slate-400">{coin.symbol}</p>
+                  <p className="text-xs uppercase text-slate-400">
+                    {coin.symbol}
+                  </p>
                 </div>
               </div>
               <button
@@ -167,7 +188,10 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
                 }}
               >
                 <Star
-                  className={cn("h-5 w-5", isWatched(coin.id) && "fill-amber-300")}
+                  className={cn(
+                    "h-5 w-5",
+                    isWatched(coin.id) && "fill-amber-300"
+                  )}
                 />
               </button>
             </div>
@@ -180,7 +204,9 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
               <span className="text-right">
                 <Badge
                   variant={
-                    (coin.price_change_percentage_24h ?? 0) >= 0 ? "success" : "danger"
+                    (coin.price_change_percentage_24h ?? 0) >= 0
+                      ? "success"
+                      : "danger"
                   }
                 >
                   {formatPercent(coin.price_change_percentage_24h)}
@@ -195,13 +221,19 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
                       : "danger"
                   }
                 >
-                  {formatPercent(coin.price_change_percentage_7d_in_currency ?? 0)}
+                  {formatPercent(
+                    coin.price_change_percentage_7d_in_currency ?? 0
+                  )}
                 </Badge>
               </span>
               <span>Cap</span>
-              <span className="text-right">{formatCurrency(coin.market_cap)}</span>
+              <span className="text-right">
+                {formatCurrency(coin.market_cap)}
+              </span>
               <span>Volume</span>
-              <span className="text-right">{formatCurrency(coin.total_volume)}</span>
+              <span className="text-right">
+                {formatCurrency(coin.total_volume)}
+              </span>
             </div>
             <div className="mt-3">
               <Sparkline coin={coin} />
@@ -209,10 +241,11 @@ export function MarketTable({ coins, onSort, sortKey, isLoading }: Props) {
           </Link>
         ))}
         {isLoading && (
-          <p className="text-center text-sm text-slate-400">Loading market data...</p>
+          <p className="text-center text-sm text-slate-400">
+            Loading market data...
+          </p>
         )}
       </div>
     </div>
   );
 }
-

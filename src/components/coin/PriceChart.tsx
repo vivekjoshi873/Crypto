@@ -38,7 +38,10 @@ export function PriceChart({ data = [], isLoading }: Props) {
               <stop offset="95%" stopColor={color} stopOpacity={0} />
             </linearGradient>
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+          <CartesianGrid
+            strokeDasharray="3 3"
+            stroke="rgba(255,255,255,0.05)"
+          />
           <XAxis
             dataKey="time"
             tickFormatter={(value) => new Date(value).toLocaleDateString()}
@@ -46,7 +49,9 @@ export function PriceChart({ data = [], isLoading }: Props) {
           />
           <YAxis
             stroke="#6b7280"
-            tickFormatter={(value) => formatCurrency(value as number, { notation: "compact" })}
+            tickFormatter={(value) =>
+              formatCurrency(value as number, { notation: "compact" })
+            }
             width={72}
           />
           <Tooltip
@@ -55,7 +60,9 @@ export function PriceChart({ data = [], isLoading }: Props) {
               border: "1px solid rgba(255,255,255,0.1)",
             }}
             labelFormatter={(value) => formatDate(value)}
-            formatter={(value: number) => formatCurrency(value, { notation: "standard" })}
+            formatter={(value: number) =>
+              formatCurrency(value, { notation: "standard" })
+            }
           />
           <Area
             type="monotone"
@@ -69,4 +76,3 @@ export function PriceChart({ data = [], isLoading }: Props) {
     </div>
   );
 }
-

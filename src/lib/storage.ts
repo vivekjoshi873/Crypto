@@ -19,4 +19,3 @@ export function writeStorage<T>(key: string, value: T) {
     console.error("Failed to write storage", err);
   }
 }
-
