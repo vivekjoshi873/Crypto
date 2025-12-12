@@ -1,36 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Crypto Dashboard
 
-## Getting Started
+Live, responsive crypto dashboard built with Next.js (App Router), Tailwind v4, React Query, and Recharts. Features live polling, watchlist persistence, charting, and accessible UI.
 
-First, run the development server:
+### Quick start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# build
+npm run build && npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app runs on `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create `.env.local`:
 
-## Learn More
+```
+NEXT_PUBLIC_API_BASE=https://api.coingecko.com/api/v3
+NEXT_PUBLIC_API_KEY=YOUR_KEY_OPTIONAL
+```
 
-To learn more about Next.js, take a look at the following resources:
+The provided sample API key from the prompt can be pasted into `NEXT_PUBLIC_API_KEY` if needed; the app also works without a key for public CoinGecko endpoints.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### What’s included
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Dashboard: top 50 coins, search (debounced), sort, pagination, sparklines, responsive cards on mobile.
+- Summary: total market cap, 24h movement, 24h volume.
+- Coin details: large price, 24h/7d/30d %, market cap, supply, interactive chart with ranges (1D/7D/30D/90D/1Y), live ticker table, watchlist toggle.
+- Watchlist: persisted in `localStorage`, quick chips on dashboard.
+- Live updates: polling every 15s by default with manual refresh button; retry with exponential backoff on failures.
+- Theming: light/dark via `next-themes`.
+- Accessibility: semantic HTML, focusable controls, ARIA labels on interactive elements.
 
-## Deploy on Vercel
+### Testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Unit tests: `npm test`
+- Watch mode: `npm run test:watch`
+- E2E smoke (Playwright): `npm run e2e` (starts `npm run dev` automatically)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Swapping APIs
+
+All requests go through `src/lib/api.ts`. Update `API_BASE`/`API_KEY` in `src/lib/constants.ts` or via environment variables. Endpoints used:
+
+1) Markets (paginated): `/coins/markets?vs_currency=usd&page={page}&per_page={perPage}&sparkline=true&price_change_percentage=1h,24h,7d,30d`
+2) Single history: `/coins/{id}/market_chart?vs_currency=usd&days={days}`
+3) Tickers feed: `/coins/{id}/tickers`
+4) Global stats: `/global`
+
+Add a WebSocket feed by extending `usePrices` in `src/hooks/usePrices.ts` if your provider offers one.
+
+### Notes
+
+- Polling cadence and default sort persist in `localStorage` (`crypto-preferences`).
+- Watchlist stored under `crypto-watchlist`.
+- Images are allowed from CoinGecko hosts via `next.config.ts`.
