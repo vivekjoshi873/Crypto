@@ -43,10 +43,7 @@ export default function CoinDetails({
   if (error) {
     return (
       <div className="p-6">
-        <ErrorState
-          message="Failed to load coin details."
-          onRetry={() => refetch()}
-        />
+        <ErrorState onRetry={() => refetch()} />
       </div>
     );
   }
@@ -55,7 +52,7 @@ export default function CoinDetails({
     <main className="mx-auto min-h-screen max-w-5xl px-4 py-10 sm:px-6 lg:px-10">
       <Link
         href="/dashboard"
-        className="mb-6 inline-flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white"
+        className="mb-6 inline-flex items-center gap-2 text-sm text-[#8b9196] hover:text-[#f0f2f1] transition-colors"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to dashboard
@@ -73,13 +70,13 @@ export default function CoinDetails({
             />
           )}
           <div>
-            <p className="text-sm uppercase tracking-wide text-slate-400">
+            <p className="text-sm uppercase tracking-wide text-[#8b9196]">
               Rank #{coin?.market_cap_rank ?? "—"}
             </p>
-            <h1 className="text-3xl font-semibold text-gray-900 dark:text-white">
+            <h1 className="text-3xl font-semibold text-[#f0f2f1]">
               {coin?.name ?? "Loading..."}
             </h1>
-            <p className="text-slate-400">{coin?.symbol?.toUpperCase()}</p>
+            <p className="text-[#8b9196]">{coin?.symbol?.toUpperCase()}</p>
           </div>
         </div>
         {coin && <WatchlistButton coinId={id} />}
@@ -89,20 +86,20 @@ export default function CoinDetails({
         <Card className="space-y-3">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div>
-              <p className="text-sm text-slate-400">Price</p>
-              <p className="text-3xl font-semibold text-gray-900 dark:text-white">
+              <p className="text-sm text-[#8b9196]">Price</p>
+              <p className="text-3xl font-semibold text-[#f0f2f1]">
                 {formatCurrency(coin?.current_price ?? 0, {
                   notation: "standard",
                   maximumFractionDigits: 4,
                 })}
               </p>
-              <p className="text-sm text-slate-400">
+              <p className="text-sm text-[#8b9196]">
                 24h:{" "}
                 <span
                   className={
                     (coin?.price_change_percentage_24h ?? 0) >= 0
-                      ? "text-emerald-300"
-                      : "text-rose-300"
+                      ? "text-[#00d084]"
+                      : "text-[#ff4d6d]"
                   }
                 >
                   {formatPercent(coin?.price_change_percentage_24h ?? 0)}
@@ -115,24 +112,24 @@ export default function CoinDetails({
         </Card>
 
         <Card>
-          <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
+          <h3 className="mb-3 text-sm font-semibold text-[#f0f2f1]">
             Latest Markets
           </h3>
           <PriceFeed data={tickers} isLoading={tickersLoading} />
-          <div className="mt-3 text-xs text-slate-500">
+          <div className="mt-3 text-xs text-[#8b9196]">
             Live tickers update every ~30s. Data courtesy of CoinGecko.
           </div>
         </Card>
       </section>
 
       <section className="mt-6">
-        <h3 className="mb-3 text-sm font-semibold text-gray-900 dark:text-white">
+        <h3 className="mb-3 text-sm font-semibold text-[#f0f2f1]">
           Market Stats
         </h3>
         <StatGrid coin={coin} />
       </section>
 
-      <div className="mt-8 flex items-center gap-2 text-xs text-slate-500">
+      <div className="mt-8 flex items-center gap-2 text-xs text-[#8b9196]">
         <ExternalLink className="h-4 w-4" />
         Data refreshes automatically; pan/zoom available with mouse wheel.
       </div>

@@ -1,6 +1,5 @@
 "use client";
 
-import { AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 type Props = {
@@ -9,18 +8,20 @@ type Props = {
 };
 
 export function ErrorState({
-  message = "Failed to load data.",
+  message = "CoinGecko is taking a nap 😴 — Retrying in 15s...",
   onRetry,
 }: Props) {
   return (
-    <div className="flex flex-col items-center justify-center gap-3 rounded-xl border border-rose-500/20 bg-rose-500/10 px-4 py-6 text-sm text-rose-100">
-      <div className="flex items-center gap-2">
-        <AlertTriangle className="h-5 w-5" />
-        <p>{message}</p>
-      </div>
+    <div className="flex flex-col items-center justify-center gap-3 rounded-xl border border-[#ff4d6d30] bg-[#ff4d6d10] px-4 py-6 text-sm text-[#ff4d6d]">
+      <p>{message}</p>
       {onRetry && (
-        <Button variant="outline" size="sm" onClick={onRetry}>
-          Retry
+        <Button
+          variant="outline"
+          size="sm"
+          onClick={onRetry}
+          className="border-[#ff4d6d30] text-[#ff4d6d] hover:bg-[#ff4d6d15]"
+        >
+          Retry now
         </Button>
       )}
     </div>

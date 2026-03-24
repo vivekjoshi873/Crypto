@@ -25,8 +25,8 @@ export function PriceChart({ data = [], isLoading }: Props) {
 
   const color =
     (data?.[data.length - 1]?.price ?? 0) >= (data?.[0]?.price ?? 0)
-      ? "#34d399"
-      : "#f472b6";
+      ? "#00d084"
+      : "#ff4d6d";
 
   return (
     <div className="h-80 w-full">
@@ -40,15 +40,15 @@ export function PriceChart({ data = [], isLoading }: Props) {
           </defs>
           <CartesianGrid
             strokeDasharray="3 3"
-            stroke="rgba(255,255,255,0.05)"
+            stroke="#1e212420"
           />
           <XAxis
             dataKey="time"
             tickFormatter={(value) => new Date(value).toLocaleDateString()}
-            stroke="#6b7280"
+            stroke="#8b9196"
           />
           <YAxis
-            stroke="#6b7280"
+            stroke="#8b9196"
             tickFormatter={(value) =>
               formatCurrency(value as number, { notation: "compact" })
             }
@@ -56,8 +56,10 @@ export function PriceChart({ data = [], isLoading }: Props) {
           />
           <Tooltip
             contentStyle={{
-              background: "#0f172a",
-              border: "1px solid rgba(255,255,255,0.1)",
+              background: "#141618",
+              border: "1px solid #1e2124",
+              borderRadius: "12px",
+              color: "#f0f2f1",
             }}
             labelFormatter={(value) => formatDate(value)}
             formatter={(value: number) =>

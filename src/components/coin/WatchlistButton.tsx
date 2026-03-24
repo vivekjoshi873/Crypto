@@ -21,7 +21,7 @@ export function WatchlistButton({ coinId }: Props) {
       aria-pressed={active}
     >
       <Star
-        className={cn("h-4 w-4", active && "fill-amber-300 text-amber-300")}
+        className={cn("h-4 w-4", active && "fill-[#00c9a7] text-[#00c9a7]")}
       />
       {active ? "On Watchlist" : "Add to Watchlist"}
     </Button>

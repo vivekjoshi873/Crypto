@@ -1,14 +1,17 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { readStorage, writeStorage } from "@/lib/storage";
 
 const STORAGE_KEY = "crypto-watchlist";
 
 export function useWatchlist() {
-  const [items, setItems] = useState<string[]>(() =>
-    readStorage<string[]>(STORAGE_KEY, [])
-  );
+  const [items, setItems] = useState<string[]>([]);
+
+  // Read from localStorage after mount to avoid SSR hydration mismatch
+  useEffect(() => {
+    setItems(readStorage<string[]>(STORAGE_KEY, []));
+  }, []);
 
   const toggle = useCallback((id: string) => {
     setItems((prev) => {

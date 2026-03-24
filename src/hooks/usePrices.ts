@@ -40,7 +40,7 @@ export function usePrices({
 }: UsePricesOptions = {}) {
   const queryKey = useMemo(
     () => ["prices", { page, perPage, sortKey, direction, search, ids }],
-    [page, perPage, sortKey, direction, search, ids]
+    [page, perPage, sortKey, direction, search, ids],
   );
 
   return useQuery({
@@ -69,7 +69,7 @@ export function usePrices({
     },
     refetchInterval,
     refetchOnWindowFocus: true,
-    staleTime: 5_000,
+    staleTime: 10_000,
     select: (data) => {
       const sorted = [...data].sort(sorters[sortKey]);
       return direction === "desc" ? sorted.reverse() : sorted;

@@ -10,7 +10,7 @@ export function Skeleton({ className, shimmer = true, ...props }: Props) {
   return (
     <div
       className={cn(
-        "rounded-md bg-white/10",
+        "rounded-md bg-[#1e2124]",
         shimmer && "animate-pulse",
         className
       )}

@@ -18,18 +18,18 @@ export function Pagination({ page, onPageChange, disabled }: Props) {
         size="sm"
         disabled={disabled || page === 1}
         onClick={() => onPageChange(Math.max(1, page - 1))}
-        className={cn("flex items-center gap-2")}
+        className={cn("flex items-center gap-2 border-[#1e2124] text-[#8b9196]")}
       >
         <ChevronLeft className="h-4 w-4" />
         Prev
       </Button>
-      <span className="text-xs text-slate-400">Page {page}</span>
+      <span className="text-xs text-[#8b9196]">Page {page}</span>
       <Button
         variant="outline"
         size="sm"
         disabled={disabled}
         onClick={() => onPageChange(page + 1)}
-        className="flex items-center gap-2"
+        className="flex items-center gap-2 border-[#1e2124] text-[#8b9196]"
       >
         Next
         <ChevronRight className="h-4 w-4" />

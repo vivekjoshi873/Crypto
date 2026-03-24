@@ -7,7 +7,7 @@ export function useGlobalStats() {
   return useQuery({
     queryKey: ["global-stats"],
     queryFn: fetchGlobalStats,
-    staleTime: 60_000,
+    staleTime: 10_000,
     refetchInterval: 60_000,
   });
 }

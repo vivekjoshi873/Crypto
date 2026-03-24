@@ -15,9 +15,9 @@ export function PriceFeed({ data = [], isLoading }: Props) {
   }
 
   return (
-    <div className="overflow-hidden rounded-xl border border-white/5">
+    <div className="overflow-hidden rounded-xl border border-[#1e2124]">
       <table className="w-full text-left text-sm">
-        <thead className="bg-white/5 text-xs uppercase tracking-wide text-slate-400">
+        <thead className="bg-[#0d0f10] text-xs uppercase tracking-wide text-[#8b9196]">
           <tr>
             <th className="px-3 py-3">Market</th>
             <th className="px-3 py-3">Last</th>
@@ -29,19 +29,19 @@ export function PriceFeed({ data = [], isLoading }: Props) {
           {data.map((row) => (
             <tr
               key={`${row.market}-${row.timestamp}`}
-              className="border-t border-white/5 hover:bg-white/5"
+              className="border-t border-[#1e2124] hover:bg-[#1e212420]"
             >
-              <td className="px-3 py-3 text-white">{row.market}</td>
-              <td className="px-3 py-3 text-slate-200">
+              <td className="px-3 py-3 text-[#f0f2f1]">{row.market}</td>
+              <td className="px-3 py-3 text-[#f0f2f1]">
                 {formatCurrency(row.converted_last ?? row.last, {
                   notation: "standard",
                   maximumFractionDigits: 5,
                 })}
               </td>
-              <td className="px-3 py-3 text-slate-300">
+              <td className="px-3 py-3 text-[#8b9196]">
                 {formatCurrency(row.volume)}
               </td>
-              <td className="px-3 py-3 text-slate-400">
+              <td className="px-3 py-3 text-[#8b9196]">
                 {row.timestamp ? formatDate(row.timestamp) : "—"}
               </td>
             </tr>
@@ -50,7 +50,7 @@ export function PriceFeed({ data = [], isLoading }: Props) {
             <tr>
               <td
                 colSpan={4}
-                className="px-3 py-4 text-center text-xs text-slate-400"
+                className="px-3 py-4 text-center text-xs text-[#8b9196]"
               >
                 No recent trades available.
               </td>

@@ -9,7 +9,7 @@ export function useTickers(id: string) {
     queryKey: ["tickers", id],
     queryFn: () => fetchTickers(id),
     enabled: Boolean(id),
-    staleTime: 30_000,
+    staleTime: 10_000,
     refetchInterval: 30_000,
   });
 }

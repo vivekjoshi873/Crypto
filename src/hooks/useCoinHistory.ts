@@ -9,6 +9,6 @@ export function useCoinHistory(id: string, days: string) {
     queryKey: ["history", id, days],
     queryFn: () => fetchCoinHistory(id, days),
     enabled: Boolean(id),
-    staleTime: 60_000,
+    staleTime: 10_000,
   });
 }

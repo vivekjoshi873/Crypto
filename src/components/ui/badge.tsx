@@ -12,12 +12,12 @@ export function Badge({ children, variant = "muted", className }: BadgeProps) {
   return (
     <span
       className={cn(
-        "rounded-full px-2.5 py-1 text-xs font-semibold",
+        "inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold",
         {
-          success: "bg-emerald-500/15 text-emerald-300",
-          danger: "bg-rose-500/15 text-rose-300",
+          success: "pill-up",
+          danger: "pill-down",
           warning: "bg-amber-500/15 text-amber-200",
-          muted: "bg-white/10 text-slate-200",
+          muted: "bg-white/10 text-[#8b9196]",
         }[variant],
         className
       )}
