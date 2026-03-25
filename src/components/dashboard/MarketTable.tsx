@@ -214,7 +214,7 @@ export function MarketTable({
                 <div className="flex items-center gap-2">
                   {onAddPortfolio && (
                     <button
-                      className="rounded-lg border border-[#1e2124] p-1 text-[#8b9196] transition hover:border-[#00c9a7] hover:text-[#00c9a7]"
+                      className="rounded-lg border border-[#1e2124] p-1 text-[#8b9196] transition hover:border-[#00c9a7] hover:text-[#00c9a7] cursor-pointer"
                       aria-label={`Add ${coin.name} to portfolio`}
                       onClick={(e) => {
                         e.preventDefault();

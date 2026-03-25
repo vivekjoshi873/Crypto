@@ -124,6 +124,10 @@
   --radius-xl: calc(var(--radius) + 4px);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--body-background);
   min-height: 100vh;

@@ -221,7 +221,7 @@ export function PortfolioTab({ holdings, onRemove }: Props) {
                                 </td>
                                 <td className="px-4 py-3">
                                     <button
-                                        className="text-[#8b9196] hover:text-[#ff4d6d] transition"
+                                        className="text-[#8b9196] hover:text-[#ff4d6d] transition cursor-pointer"
                                         onClick={() => onRemove(item.id)}
                                         aria-label={`Remove ${item.name} from portfolio`}
                                     >
